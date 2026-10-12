@@ -2,6 +2,11 @@
   command = "npm run build"
   publish = "out"
 
+[build.environment]
+  # eslint-config-next@14 pide eslint 8 y el proyecto usa eslint 9;
+  # el build local ya funciona con esta combinacion
+  NPM_FLAGS = "--legacy-peer-deps"
+
 # Nota: NO usar redirect /* -> /index.html con Next.js `output: export`.
 # Cada ruta ya tiene su propio index.html (trailingSlash),
 # y ese redirect hacía que /dashboard/contabilidad/ sirviera la landing
