@@ -115,10 +115,12 @@ export const api = {
   }) => req("/api/v1/devoluciones", { method: "POST", body: JSON.stringify(data) }),
   vendedores: () => req("/api/v1/auth/vendedores") as Promise<any[]>,
   asistencia: async (fecha?: string) => {
-    const res = await req(`/api/v1/asistencia/historial${fecha ? `?fecha=${encodeURIComponent(fecha)}` : ""}`).catch(() => ({ success: false, data: [] }));
-    if (res && res.data) return res.data as any[];
+    // Sin catch silencioso: si el backend falla (401, 500, tabla inexistente),
+    // la pagina muestra el error en vez de un "0 registros" enganoso.
+    const res = await req(`/api/v1/asistencia/historial${fecha ? `?fecha=${encodeURIComponent(fecha)}` : ""}`);
+    if (res && (res as any).data) return (res as any).data as any[];
     if (Array.isArray(res)) return res;
-    return [];
+    throw new Error("Respuesta de asistencia inesperada del servidor");
   },
   chat: (pregunta: string) =>
     req("/api/v1/chat", { method: "POST", body: JSON.stringify({ pregunta }) }),

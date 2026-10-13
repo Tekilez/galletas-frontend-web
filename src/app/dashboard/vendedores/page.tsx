@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { api, fmtSol } from "@/lib/api";
 import { Badge, Card, Empty, PageHead } from "@/components/custom-ui";
 
@@ -30,19 +30,32 @@ export default function VendPage() {
   const [filtroVendedor, setFiltroVendedor] = useState<string>("todos");
   const [filtroFecha, setFiltroFecha] = useState<string>("todos");
 
-  useEffect(() => {
+  const loadData = useCallback(() => {
     setLoading(true);
+    setErr("");
     Promise.allSettled([
       api.notas(),
       api.vendedores().catch(() => []),
-      api.asistencia().catch(() => []),
+      api.asistencia(),
     ]).then(([nRes, vRes, aRes]) => {
       if (nRes.status === "fulfilled") setNotas(Array.isArray(nRes.value) ? nRes.value : []);
-      else setErr(String((nRes as any).reason?.message ?? "Error cargando notas"));
+      else setErr((prev) => prev ? `${prev} · Notas: ${String((nRes as any).reason?.message ?? "error")}` : `Notas: ${String((nRes as any).reason?.message ?? "Error cargando notas")}`);
       if (vRes.status === "fulfilled") setVendedores(Array.isArray(vRes.value) ? vRes.value : []);
       if (aRes.status === "fulfilled") setAsistencias(Array.isArray(aRes.value) ? aRes.value : []);
+      else setErr((prev) => {
+        const msg = `Asistencia: ${String((aRes as any).reason?.message ?? "error")}`;
+        return prev ? `${prev} · ${msg}` : msg;
+      });
     }).finally(() => setLoading(false));
   }, []);
+
+  useEffect(() => { loadData(); }, [loadData]);
+
+  // Auto-refresh cada 30s para ver entradas/salidas del celular sin recargar
+  useEffect(() => {
+    const t = setInterval(loadData, 30000);
+    return () => clearInterval(t);
+  }, [loadData]);
 
   // Resumen por vendedor
   const porVendedor = useMemo(() => {
@@ -129,7 +142,9 @@ export default function VendPage() {
         return false;
       }
       if (filtroFecha === "hoy") {
-        const hoy = new Date().toISOString().slice(0, 10);
+        // Fecha local (no UTC): en Peru UTC-5 el toISOString() falla de noche
+        const d = new Date();
+        const hoy = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
         return t.fecha === hoy;
       }
       return true;
@@ -141,6 +156,15 @@ export default function VendPage() {
       <PageHead
         title="Vendedores y Control de Asistencia"
         sub="Control de turnos, entradas, salidas y registro de acciones por vendedor en tiempo real."
+        right={
+          <button
+            onClick={loadData}
+            disabled={loading}
+            className="px-3 py-2 rounded-xl text-xs font-extrabold text-[#FFFBEB] bg-[#7C4A21] hover:bg-[#5C2E0F] disabled:opacity-50"
+          >
+            {loading ? "Cargando…" : "⟳ Actualizar"}
+          </button>
+        }
       />
 
       {/* Tabs */}
@@ -167,7 +191,14 @@ export default function VendPage() {
         </button>
       </div>
 
-      {err && <p className="text-sm font-bold text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-2.5">{err}</p>}
+      {err && (
+        <div className="flex flex-wrap items-center gap-2 text-sm font-bold text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-2.5">
+          <span className="flex-1 min-w-[200px]">⚠️ {err}</span>
+          <button onClick={loadData} className="px-3 py-1.5 rounded-lg text-xs font-extrabold text-white bg-red-600 hover:bg-red-700">
+            Reintentar
+          </button>
+        </div>
+      )}
       {loading && <p className="text-sm font-bold text-black">Cargando datos del servidor…</p>}
 
       {/* TAB ASISTENCIA & ACCIONES */}
