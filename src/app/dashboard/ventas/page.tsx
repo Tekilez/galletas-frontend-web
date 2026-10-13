@@ -392,7 +392,7 @@ export default function VentasPage() {
                             </td>
                             <td className="px-3 py-3">
                               {n.vendedor_nombre ? (
-                                <Badge variant="outline" className="bg-purple-50 text-purple-700 font-bold border-purple-200">
+                                <Badge variant="outline" className="bg-amber-50 text-amber-700 font-bold border-amber-200">
                                   {n.vendedor_nombre}
                                 </Badge>
                               ) : (

@@ -9,7 +9,7 @@ const SUGERENCIAS = ["¿cuántas chocochips PAQ12 hay?", "stock crítico", "¿cu
 
 export default function IAPage() {
   const [q, setQ] = useState("");
-  const [msgs, setMsgs] = useState<Msg[]>([{ rol: "ia", texto: "Soy Kardex IA (Gemini). Solo respondo con datos reales del inventario: stock, ventas de hoy, más vendidos y margen. Sin promociones." }]);
+  const [msgs, setMsgs] = useState<Msg[]>([{ rol: "ia", texto: "Soy Galleta IA 🍪. Solo respondo con datos reales del inventario: stock, ventas de hoy, más vendidos y margen." }]);
   const [loading, setLoading] = useState(false);
 
   const ask = async (pregunta: string) => {
@@ -32,7 +32,7 @@ export default function IAPage() {
         <div className="p-5 space-y-3 min-h-[320px] max-h-[52vh] overflow-y-auto">
           {msgs.map((m, i) => (
             <div key={i} className={`flex ${m.rol === "yo" ? "justify-end" : "justify-start"}`}>
-              <div className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-[13px] leading-relaxed ${m.rol === "yo" ? "bg-[#1B1145] text-white font-semibold rounded-br-md" : "bg-zinc-100 text-black font-medium rounded-bl-md"}`}>
+              <div className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-[13px] leading-relaxed ${m.rol === "yo" ? "bg-[#7C4A21] text-white font-semibold rounded-br-md" : "bg-zinc-100 text-black font-medium rounded-bl-md"}`}>
                 <p>{m.texto}</p>
                 {m.datos && <pre className="mt-2 text-[11px] bg-black/[0.06] rounded-lg p-2 overflow-auto">{JSON.stringify(m.datos, null, 2)}</pre>}
               </div>
@@ -46,8 +46,8 @@ export default function IAPage() {
           ))}
         </div>
         <div className="p-4 flex gap-2 border-t border-zinc-100">
-          <input value={q} onChange={(e) => setQ(e.target.value)} onKeyDown={(e) => e.key === "Enter" && ask(q)} placeholder="Pregunta por stock, ventas, margen…" className="flex-1 border border-zinc-300 rounded-xl px-3 py-2.5 text-sm text-black placeholder:text-black/40 focus:outline-none focus:ring-2 focus:ring-violet-600/30 focus:border-violet-600" />
-          <button onClick={() => ask(q)} disabled={loading} className="px-4 rounded-xl text-sm font-extrabold text-white bg-[#1B1145] hover:bg-[#2A1A66] disabled:opacity-50">➤</button>
+          <input value={q} onChange={(e) => setQ(e.target.value)} onKeyDown={(e) => e.key === "Enter" && ask(q)} placeholder="Pregunta por stock, ventas, margen…" className="flex-1 border border-zinc-300 rounded-xl px-3 py-2.5 text-sm text-black placeholder:text-black/40 focus:outline-none focus:ring-2 focus:ring-amber-600/30 focus:border-amber-700" />
+          <button onClick={() => ask(q)} disabled={loading} className="px-4 rounded-xl text-sm font-extrabold text-white bg-[#7C4A21] hover:bg-[#5C2E0F] disabled:opacity-50">➤</button>
         </div>
       </Card>
       <p className="text-[11px] text-black/55 mt-2 font-semibold">Responde solo con inventario_context del backend (system prompt restringido, temperature 0.1).</p>

@@ -49,17 +49,17 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     else setUser(u);
   }, [router]);
 
-  if (!mounted || !user) return <div className="min-h-screen bg-[#F4F4F5] flex items-center justify-center text-sm font-bold text-black/50">Verificando sesión...</div>;
+  if (!mounted || !user) return <div className="min-h-screen bg-[#FDF6E9] flex items-center justify-center text-sm font-bold text-[#7C4A21]/60">Verificando sesión...</div>;
 
   return (
-    <div className="min-h-screen bg-[#F4F4F5] flex text-black">
-      <aside className="w-[248px] shrink-0 bg-[#12172B] text-white flex flex-col sticky top-0 h-screen print:hidden">
+    <div className="min-h-screen bg-[#FDF6E9] flex text-[#3B2314]">
+      <aside className="w-[248px] shrink-0 bg-[#3B2314] text-[#FFFBEB] flex flex-col sticky top-0 h-screen print:hidden">
         <div className="px-5 pt-6 pb-5">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#7C3AED] to-[#06B6D4] flex items-center justify-center text-lg font-black">K</div>
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#E8A838] to-[#8B4513] flex items-center justify-center text-xl font-black">🍪</div>
             <div>
-              <p className="font-black text-[15px] tracking-tight leading-none">KADEX</p>
-              <p className="text-[10px] font-bold tracking-[0.22em] text-white/50 mt-1">TIENDA · ADMIN</p>
+              <p className="font-black text-[15px] tracking-tight leading-none">LA GALLETERÍA</p>
+              <p className="text-[10px] font-bold tracking-[0.22em] text-[#FFD9A0]/70 mt-1">TIENDA · GALLETAS</p>
             </div>
           </div>
         </div>
@@ -76,10 +76,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                       href={it.href}
                       className={`relative flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] transition-colors ${active ? "bg-white/[0.08] font-extrabold text-white" : "text-white/65 hover:text-white hover:bg-white/[0.05] font-semibold"}`}
                     >
-                      {active && <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 rounded-full bg-gradient-to-b from-[#7C3AED] to-[#06B6D4]" />}
+                      {active && <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 rounded-full bg-gradient-to-b from-[#E8A838] to-[#B45309]" />}
                       <span className="w-5 text-center text-[13px]">{it.icon}</span>
                       <span className="flex-1">{it.label}</span>
-                      {it.badge && <span className="bg-[#7C3AED]/20 text-[#A78BFA] text-[9px] font-black uppercase px-2 py-0.5 rounded-md tracking-wider">{it.badge}</span>}
+                      {it.badge && <span className="bg-[#E8A838]/20 text-[#FCD34D] text-[9px] font-black uppercase px-2 py-0.5 rounded-md tracking-wider">{it.badge}</span>}
                     </Link>
                   );
                 })}
@@ -88,13 +88,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           ))}
         </nav>
         <div className="p-3 pb-0">
-          <button className="w-full flex items-center justify-center gap-2 bg-[#4285F4] hover:bg-[#3367D6] text-white font-bold text-[13px] py-2.5 rounded-xl transition-colors">
+          <button className="w-full flex items-center justify-center gap-2 bg-[#B45309] hover:bg-[#92400E] text-white font-bold text-[13px] py-2.5 rounded-xl transition-colors">
             <span>🎧</span> Contactar Soporte
           </button>
         </div>
         <div className="p-3">
           <div className="rounded-xl bg-white/[0.06] border border-white/10 p-3 flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#7C3AED] to-[#06B6D4] flex items-center justify-center text-sm font-black">
+            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#E8A838] to-[#8B4513] flex items-center justify-center text-sm font-black">
               {(user?.nombre ?? "?").slice(0, 1).toUpperCase()}
             </div>
             <div className="min-w-0 flex-1">
@@ -109,7 +109,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </div>
         </div>
       </aside>
-      <main className="flex-1 min-w-0 px-6 py-6 max-w-[1120px] w-full mx-auto bg-[#F4F4F5] text-black">{children}</main>
+      <main className="flex-1 min-w-0 px-6 py-6 max-w-[1120px] w-full mx-auto bg-[#FDF6E9] text-[#3B2314]">{children}</main>
     </div>
   );
 }

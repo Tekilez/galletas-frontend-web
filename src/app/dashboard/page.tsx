@@ -170,16 +170,16 @@ export default function DashboardPage() {
 
       {/* TOP CARDS */}
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-        <Card className="bg-gradient-to-br from-white to-purple-50/50 border-purple-200/70 shadow-sm">
+        <Card className="bg-gradient-to-br from-white to-amber-50 border-amber-200 shadow-sm">
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-semibold text-purple-900 flex items-center justify-between">
+            <CardTitle className="text-sm font-semibold text-amber-900 flex items-center justify-between">
               <span>Mejor Vendedora</span>
               <span>🎉</span>
             </CardTitle>
             <CardDescription className="font-bold text-zinc-800 text-base">{stats.topVendedor.nombre}</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-black text-purple-700">{fmtSol(stats.topVendedor.total)}</div>
+            <div className="text-2xl font-black text-amber-800">{fmtSol(stats.topVendedor.total)}</div>
             <p className="text-xs text-muted-foreground mt-1">Ventas generadas en el mes</p>
           </CardContent>
         </Card>
@@ -256,9 +256,9 @@ export default function DashboardPage() {
 
         <div className="grid gap-6 md:grid-cols-12">
           {/* SPOTLIGHT HERO: GALLETA #1 MÁS VENDIDA */}
-          <Card className="md:col-span-5 bg-gradient-to-br from-[#18181B] to-[#27272A] text-white border-zinc-800 shadow-xl overflow-hidden relative">
-            <div className="absolute top-0 right-0 w-36 h-36 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-500/15 rounded-full blur-3xl pointer-events-none" />
+          <Card className="md:col-span-5 bg-gradient-to-br from-[#3B2314] to-[#5C2E0F] text-white border-[#3B2314] shadow-xl overflow-hidden relative">
+            <div className="absolute top-0 right-0 w-36 h-36 bg-amber-500/20 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[#E8A838]/20 rounded-full blur-3xl pointer-events-none" />
             
             <CardHeader className="pb-3 relative z-10">
               <div className="flex items-center justify-between">

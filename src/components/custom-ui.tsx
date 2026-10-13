@@ -40,11 +40,11 @@ export function Stat({ label, value, sub, icon, tint }: {
 
 export function Badge({ children, tone = "zinc" }: { children: React.ReactNode; tone?: "zinc" | "violet" | "teal" | "red" | "amber" }) {
   const tones: Record<string, string> = {
-    zinc: "bg-zinc-100 text-black border-zinc-200",
-    violet: "bg-violet-100 text-violet-900 border-violet-200",
+    zinc: "bg-[#FDF0D5] text-[#3B2314] border-[#E5C07B]",
+    violet: "bg-amber-100 text-amber-900 border-amber-200",
     teal: "bg-teal-50 text-teal-800 border-teal-200",
     red: "bg-red-50 text-red-700 border-red-200",
-    amber: "bg-amber-50 text-amber-800 border-amber-200",
+    amber: "bg-amber-100 text-[#7C4A21] border-amber-300",
   };
   return (
     <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-bold border ${tones[tone]}`}>{children}</span>
@@ -69,7 +69,7 @@ export function Search({ value, onChange, placeholder }: { value: string; onChan
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full bg-white border border-zinc-300 rounded-xl pl-9 pr-3 py-2 text-sm text-black placeholder:text-black/40 focus:outline-none focus:ring-2 focus:ring-violet-600/30 focus:border-violet-600"
+        className="w-full bg-white border border-[#E5C07B] rounded-xl pl-9 pr-3 py-2 text-sm text-black placeholder:text-black/40 focus:outline-none focus:ring-2 focus:ring-amber-600/30 focus:border-amber-700"
       />
     </div>
   );
@@ -96,5 +96,5 @@ export function PageHead({ title, sub, right }: { title: string; sub?: string; r
 export function Btn({ children, onClick, variant = "primary" }: { children: React.ReactNode; onClick?: () => void; variant?: "primary" | "ghost" }) {
   if (variant === "ghost")
     return <button onClick={onClick} className="px-3 py-2 rounded-xl text-xs font-bold text-black border border-zinc-300 hover:bg-zinc-50">{children}</button>;
-  return <button onClick={onClick} className="px-3 py-2 rounded-xl text-xs font-extrabold text-white bg-[#1B1145] hover:bg-[#2A1A66]">{children}</button>;
+  return <button onClick={onClick} className="px-3 py-2 rounded-xl text-xs font-extrabold text-[#FFFBEB] bg-[#7C4A21] hover:bg-[#5C2E0F]">{children}</button>;
 }

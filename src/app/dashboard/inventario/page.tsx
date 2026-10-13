@@ -842,7 +842,7 @@ export default function InventarioPage() {
               <div>
                 <h2 className="text-xl font-black text-zinc-900 flex items-center gap-2">
                   <span>✨ Registro de Productos al Catálogo</span>
-                  <Badge variant="outline" className="bg-purple-50 text-purple-700 font-bold border-purple-200">
+                  <Badge variant="outline" className="bg-amber-50 text-amber-700 font-bold border-amber-200">
                     {modalMode === "lote" ? `${bulkRows.length} en lote` : "Individual"}
                   </Badge>
                 </h2>
@@ -892,7 +892,7 @@ export default function InventarioPage() {
                     type="button"
                     size="sm"
                     onClick={addBulkRow}
-                    className="bg-purple-600 hover:bg-purple-700 text-white font-bold h-8 text-xs"
+                    className="bg-amber-600 hover:bg-amber-700 text-white font-bold h-8 text-xs"
                   >
                     ➕ Añadir otra fila / paquete
                   </Button>
@@ -917,7 +917,7 @@ export default function InventarioPage() {
                             variant="ghost"
                             size="sm"
                             onClick={() => duplicateBulkRow(idx)}
-                            className="h-7 px-2 text-xs font-bold text-purple-700 hover:bg-purple-50"
+                            className="h-7 px-2 text-xs font-bold text-amber-700 hover:bg-amber-50"
                             title="Duplicar esta fila (para crear otra presentación o sabor rápido)"
                           >
                             📋 Duplicar
@@ -1057,7 +1057,7 @@ export default function InventarioPage() {
 
                   <div className="flex items-center gap-2">
                     {saveProgress && (
-                      <span className="text-xs font-bold text-purple-700 animate-pulse">
+                      <span className="text-xs font-bold text-amber-700 animate-pulse">
                         {saveProgress}
                       </span>
                     )}

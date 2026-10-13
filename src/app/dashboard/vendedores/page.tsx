@@ -149,7 +149,7 @@ export default function VendPage() {
           onClick={() => setTab("asistencia")}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-black transition-all ${
             tab === "asistencia"
-              ? "bg-[#7C3AED] text-white shadow-sm"
+              ? "bg-[#B45309] text-white shadow-sm"
               : "bg-white text-zinc-700 hover:bg-zinc-100"
           }`}
         >
@@ -159,7 +159,7 @@ export default function VendPage() {
           onClick={() => setTab("ventas")}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-black transition-all ${
             tab === "ventas"
-              ? "bg-[#7C3AED] text-white shadow-sm"
+              ? "bg-[#B45309] text-white shadow-sm"
               : "bg-white text-zinc-700 hover:bg-zinc-100"
           }`}
         >
@@ -180,7 +180,7 @@ export default function VendPage() {
               <select
                 value={filtroVendedor}
                 onChange={(e) => setFiltroVendedor(e.target.value)}
-                className="bg-zinc-50 border border-zinc-300 rounded-xl px-3 py-1.5 text-xs font-bold text-black outline-none focus:border-[#7C3AED]"
+                className="bg-zinc-50 border border-zinc-300 rounded-xl px-3 py-1.5 text-xs font-bold text-black outline-none focus:border-[#B45309]"
               >
                 <option value="todos">Todos los vendedores</option>
                 {vendedores.map((v) => (
@@ -218,7 +218,7 @@ export default function VendPage() {
                   <div className="p-4 sm:p-5">
                     <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-zinc-100">
                       <div className="flex items-center gap-3">
-                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-white font-black text-sm ${isActivo ? "bg-gradient-to-br from-[#10B981] to-[#059669] animate-pulse" : "bg-gradient-to-br from-[#7C3AED] to-[#06B6D4]"}`}>
+                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-white font-black text-sm ${isActivo ? "bg-gradient-to-br from-[#10B981] to-[#059669] animate-pulse" : "bg-gradient-to-br from-[#B45309] to-[#E8A838]"}`}>
                           {t.nombre ? t.nombre.slice(0, 1).toUpperCase() : "V"}
                         </div>
                         <div>
@@ -237,7 +237,7 @@ export default function VendPage() {
                       <div className="flex items-center gap-3 text-right">
                         <div className="bg-zinc-50 border border-zinc-200 px-3 py-1.5 rounded-xl text-center">
                           <p className="text-[10px] font-bold text-zinc-500 uppercase">Tiempo Turno</p>
-                          <p className="text-sm font-black text-[#7C3AED]">{formatMinutos(t.minutosCalculados)}</p>
+                          <p className="text-sm font-black text-[#B45309]">{formatMinutos(t.minutosCalculados)}</p>
                         </div>
                         <div className="bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-xl text-center">
                           <p className="text-[10px] font-bold text-emerald-700 uppercase">Ventas Turno</p>
@@ -293,7 +293,7 @@ export default function VendPage() {
                               </div>
                               <div className="flex items-center gap-3 font-bold">
                                 <span className="text-zinc-500 text-[11px]">{formatHora(n.created_at)}</span>
-                                <span className="text-[#7C3AED] font-black">{fmtSol(Number(n.total) || 0)}</span>
+                                <span className="text-[#B45309] font-black">{fmtSol(Number(n.total) || 0)}</span>
                               </div>
                             </div>
                           ))}
@@ -329,7 +329,7 @@ export default function VendPage() {
             <Card key={v.id}>
               <div className="p-5">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className={`w-11 h-11 rounded-full flex items-center justify-center text-white text-lg font-black ${v.activo ? "bg-gradient-to-br from-[#7C3AED] to-[#06B6D4]" : "bg-zinc-400"}`}>
+                  <div className={`w-11 h-11 rounded-full flex items-center justify-center text-white text-lg font-black ${v.activo ? "bg-gradient-to-br from-[#B45309] to-[#E8A838]" : "bg-zinc-400"}`}>
                     {v.nombre.slice(0, 1).toUpperCase()}
                   </div>
                   <div className="flex-1 min-w-0">

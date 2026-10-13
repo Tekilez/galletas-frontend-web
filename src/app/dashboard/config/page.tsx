@@ -7,7 +7,7 @@ export default function ConfigPage() {
   const [user, setUser] = useState<AuthUser | null>(null);
   
   // Datos locales para el MVP
-  const [empresa, setEmpresa] = useState("KADEX Tienda");
+  const [empresa, setEmpresa] = useState("La Galletería");
   const [ruc, setRuc] = useState("20123456789");
   
   useEffect(() => {
@@ -34,7 +34,7 @@ export default function ConfigPage() {
           <SectionTitle title="Tu Cuenta" sub="Información de la sesión actual." />
           <div className="p-5 space-y-4">
             <div className="flex items-center gap-4 mb-2">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#7C3AED] to-[#06B6D4] flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-violet-500/20">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#E8A838] to-[#8B4513] flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-amber-500/20">
                 {(user?.nombre ?? "?").slice(0, 1).toUpperCase()}
               </div>
               <div>
@@ -66,7 +66,7 @@ export default function ConfigPage() {
                 type="text" 
                 value={empresa}
                 onChange={(e) => setEmpresa(e.target.value)}
-                className="w-full border border-zinc-200 bg-zinc-50 rounded-xl px-4 py-2.5 text-[14px] font-semibold text-black focus:border-[#7C3AED] focus:bg-white focus:outline-none transition-colors"
+                className="w-full border border-zinc-200 bg-zinc-50 rounded-xl px-4 py-2.5 text-[14px] font-semibold text-black focus:border-[#B45309] focus:bg-white focus:outline-none transition-colors"
                 placeholder="Ej. Comercial Kadex"
               />
             </div>
@@ -76,13 +76,13 @@ export default function ConfigPage() {
                 type="text" 
                 value={ruc}
                 onChange={(e) => setRuc(e.target.value)}
-                className="w-full border border-zinc-200 bg-zinc-50 rounded-xl px-4 py-2.5 text-[14px] font-semibold text-black focus:border-[#7C3AED] focus:bg-white focus:outline-none transition-colors"
+                className="w-full border border-zinc-200 bg-zinc-50 rounded-xl px-4 py-2.5 text-[14px] font-semibold text-black focus:border-[#B45309] focus:bg-white focus:outline-none transition-colors"
                 placeholder="Ej. 20123456789"
               />
             </div>
             <button 
               onClick={saveEmpresaData}
-              className="px-4 py-2 bg-[#1B1145] hover:bg-[#2A1A66] text-white text-[13px] font-bold rounded-xl transition-colors"
+              className="px-4 py-2 bg-[#7C4A21] hover:bg-[#5C2E0F] text-white text-[13px] font-bold rounded-xl transition-colors"
             >
               Guardar Datos
             </button>

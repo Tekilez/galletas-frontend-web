@@ -103,7 +103,7 @@ const OP_META: Record<OpType, { titulo: string; icono: string; efecto: string; d
     efecto: "Suma inventario · Resta efectivo o genera deuda",
     detalle:
       "Registra las galletas que compraste al proveedor. La mercadería entra al Inventario. Si pagaste al contado sale de tu Efectivo; si fue a crédito se suma a Cuentas por Pagar.",
-    color: "bg-violet-50 border-violet-200 text-violet-900",
+    color: "bg-amber-50 border-amber-200 text-amber-900",
   },
   gasto: {
     titulo: "Gasto operativo / Interés",
@@ -983,7 +983,7 @@ export default function ContabilidadPage() {
                         Ventas de galletas ({fmtSol(financialData.ventasBackend)} del sistema + {fmtSol(financialData.ventasManuales)} manuales), costo y gastos.
                       </CardDescription>
                     </div>
-                    <Badge variant="outline" className="bg-purple-50 text-purple-700 font-bold border-purple-200">Soles (S/)</Badge>
+                    <Badge variant="outline" className="bg-amber-50 text-amber-700 font-bold border-amber-200">Soles (S/)</Badge>
                   </div>
                 </CardHeader>
                 <CardContent className="p-0">

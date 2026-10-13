@@ -435,7 +435,7 @@ export default function ComprasPage() {
           <Button
             variant="secondary"
             onClick={() => setShowAiModal(true)}
-            className="font-bold bg-purple-100 hover:bg-purple-200 text-purple-900 border border-purple-300"
+            className="font-bold bg-amber-100 hover:bg-amber-200 text-amber-900 border border-amber-300"
           >
             ✨ Escanear con IA
           </Button>
@@ -673,7 +673,7 @@ export default function ComprasPage() {
                       <span className="text-xs font-black text-black">Paquete #{idx + 1}</span>
                       <div className="flex items-center gap-2">
                         {row.isNew ? (
-                          <Badge variant="secondary" className="text-[10px] bg-purple-50 text-purple-700">
+                          <Badge variant="secondary" className="text-[10px] bg-amber-50 text-amber-700">
                             ✨ Nueva galleta (se creará al guardar)
                           </Badge>
                         ) : (
@@ -883,10 +883,10 @@ export default function ComprasPage() {
 
             <div className="space-y-4">
               {/* Option 1: File Upload */}
-              <div className="border-2 border-dashed border-purple-300 bg-purple-50/50 rounded-xl p-5 text-center space-y-2">
+              <div className="border-2 border-dashed border-amber-300 bg-amber-50/50 rounded-xl p-5 text-center space-y-2">
                 <p className="text-2xl">📸</p>
-                <p className="text-sm font-black text-purple-950">Subir foto o PDF de la boleta de compra</p>
-                <p className="text-xs text-purple-800">
+                <p className="text-sm font-black text-amber-950">Subir foto o PDF de la boleta de compra</p>
+                <p className="text-xs text-amber-800">
                   La IA leerá los items, cantidades y costos unitarios automáticamente.
                 </p>
                 <input
@@ -901,7 +901,7 @@ export default function ComprasPage() {
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
                   disabled={aiLoading}
-                  className="bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs"
+                  className="bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs"
                 >
                   {aiLoading ? "Procesando con OCR e IA…" : "Seleccionar Foto o PDF"}
                 </Button>
@@ -923,14 +923,14 @@ export default function ComprasPage() {
                   placeholder="Ej: Boleta Molino Galletar 24/09: 12 chocochips PAQ12 a 15 soles, 8 avena BOLSA500G a 13 soles..."
                   value={aiText}
                   onChange={(e) => setAiText(e.target.value)}
-                  className="w-full p-3 rounded-lg border border-zinc-300 text-xs font-medium focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                  className="w-full p-3 rounded-lg border border-zinc-300 text-xs font-medium focus:ring-2 focus:ring-amber-500 focus:outline-none"
                 />
                 <div className="flex justify-end mt-2">
                   <Button
                     type="button"
                     onClick={handleParseAiText}
                     disabled={aiLoading || !aiText.trim()}
-                    className="font-bold text-xs bg-purple-600 hover:bg-purple-700 text-white"
+                    className="font-bold text-xs bg-amber-600 hover:bg-amber-700 text-white"
                   >
                     {aiLoading ? "Analizando texto…" : "Analizar y Rellenar Boleta"}
                   </Button>
