@@ -51,7 +51,7 @@ export default function LoginPage() {
             <li>▸ Tus galletas favoritas siempre en vitrina</li>
           </ul>
         </div>
-        <p className="relative text-[11px] text-white/40 font-semibold">Base · kardex-ia.onrender.com</p>
+        <p className="relative text-[11px] text-white/40 font-semibold">Base · galletas-backend-erp.onrender.com</p>
       </div>
       <div className="flex-1 flex items-center justify-center bg-[#FFFBEB] p-6">
         <div className="w-full max-w-[360px]">

@@ -1,4 +1,4 @@
-export const API_BASE = "https://kardex-ia.onrender.com";
+export const API_BASE = "https://galletas-backend-erp.onrender.com";
 
 export type AuthUser = { id: string; usuario: string; nombre: string; rol: string };
 
